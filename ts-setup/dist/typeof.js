@@ -10,12 +10,12 @@ function doSomething(value) {
 doSomething("Hello World");
 doSomething(123.456);
 function checkAndPrint(value) {
-    if (typeof value === 'object') {
+    if (value && typeof value === 'object') {
         for (const item of value) {
             console.log(item.toUpperCase());
         }
     }
     else {
-        console.log(value.toUpperCase());
+        console.log(value && value.toUpperCase());
     }
 }
