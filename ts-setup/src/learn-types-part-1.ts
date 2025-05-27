@@ -77,7 +77,7 @@ function printColor2(color: {name: string, code: string, index?: number}) {
 // Union
 // narrowing in typescript is the process of checking the type of a variable at runtime and then using that information to narrow down the type of the variable. 
 
-function getPosition(position: number | string) {
+function getPosition3(position: number | string) {
     if(typeof position === 'string') {
         console.log(position.split(' '))
     } else {
@@ -85,8 +85,8 @@ function getPosition(position: number | string) {
     }
 }
 
-getPosition(12)
-getPosition('twelve and 2')
+getPosition3(12)
+getPosition3('twelve and 2')
 
 // Type assertion
 // Somwtimes you want to cast your variables from one type to another, the moment you use any you want to assert type to something you are more comfortable with
