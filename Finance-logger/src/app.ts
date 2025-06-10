@@ -1,37 +1,9 @@
 
 import { Invoice } from "./classes/invoice.js"
+import { ListTemplate } from "./classes/listTemplate.js";
 import { Payments } from "./classes/payments.js";
 import { hasFormatter } from "./interfaces/hasFormatter.js";
 
-// let docOne: hasFormatter;
-// let docTwo: hasFormatter;
-
-// docOne = new Invoice("yoshi", 'web work', 345);
-// docTwo = new Payments('mario', 'plumbing', 345)
-
-// let docs: hasFormatter[] = [];
-// docs.push(docOne);
-// docs.push(docTwo)
-
-// console.log(docs)
-
-// const invOne = new Invoice("mario", "work on the mario website", 250)
-// const invTwo = new Invoice("luigi", "work on the luigi website", 350)
-
-// let invoices: Invoice[] = [];
-
-// invoices.push(invOne);
-// invoices.push(invTwo);
-
-// invoices.forEach(inv => {
-//     console.log(inv.client, inv.amount, inv.format())
-// })
-
-
-// // interacting with the dom
-// const anchor = document.querySelector('a')!
-// // “I am sure that document.querySelector('a') will not return null, so trust me, don’t give me a compile-time error.”
-// console.log(anchor.href)
 
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 // console.log(form.children);
@@ -42,6 +14,9 @@ const toFrom = document.querySelector("#tofrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
 
+// list template instance
+const ul = document.querySelector('ul')!;
+const list = new ListTemplate(ul)
 
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
@@ -52,6 +27,28 @@ form.addEventListener('submit', (e: Event) => {
         doc = new Payments(toFrom.value, details.value, amount.valueAsNumber)
     }
 
-    console.log(doc)
+    list.render(doc, type.value, "end")
 })
 
+
+
+
+// generics
+// allow us to create reusable code
+const addUID = <T extends {name: string}>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid};
+
+    
+}
+let docOne = addUID({name: 'yoshi', age: 40})
+// let docTwo = addUID("hello")
+console.log(docOne.age)
+
+
+// with interfaces
+interface Resource <T>{
+    uid: number;
+    resourceName: string;
+    data: T;
+}
