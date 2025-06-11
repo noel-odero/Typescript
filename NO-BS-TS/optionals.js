@@ -18,5 +18,5 @@ function getEmailEasy(user) {
 // optional callbacks
 function addWithCallback(x, y, callback) {
     console.log([x, y]);
-    callback();
+    callback === null || callback === void 0 ? void 0 : callback();
 }
