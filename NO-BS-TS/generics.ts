@@ -65,6 +65,7 @@ const Pokemon: pokemon[] = [
 
 const ranks = ranker(Pokemon, ({ hp }) => hp)
 
+<<<<<<< HEAD
 console.log(ranks)
 
 // extends and extends keyof
@@ -92,3 +93,6 @@ function prop<T, K extends keyof T>(obj: T, key: K) {
 
 let str = prop({ name: 'John' }, 'name');
 console.log(str);
+=======
+console.log(ranks)
+>>>>>>> 41ff35ff83e617a14da7069754afe86f46d3970c
