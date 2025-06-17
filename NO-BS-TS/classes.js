@@ -19,8 +19,12 @@ class PersistibleMemoryDB extends InMemoryDatabase {
     }
 }
 const myDB = new PersistibleMemoryDB();
-myDB.set("foo", "bar");
+myDB.set("foo", 22);
 // myDB.db["foo"] == "baz"
 console.log(myDB.get("foo"));
-console.log(myDB.saveToString());
+const saved = myDB.saveToString();
+myDB.set("foo", 33);
+console.log(myDB.get("foo"));
 const myDB2 = new PersistibleMemoryDB();
+myDB2.restoreFromString(saved);
+console.log(myDB2.get("foo"));

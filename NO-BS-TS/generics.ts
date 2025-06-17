@@ -4,7 +4,7 @@
 function simpleState<T>(initial: T): [() => T, (v: T) => void] {
     let val: T = initial;
     return [
-        
+
         () => val,
         (v: T) => {
             val = v;
@@ -65,34 +65,4 @@ const Pokemon: pokemon[] = [
 
 const ranks = ranker(Pokemon, ({ hp }) => hp)
 
-<<<<<<< HEAD
 console.log(ranks)
-
-// extends and extends keyof
-// Use extends keyword to constrain the type parameter to a specific type.
-// Use extends keyof to constrain a type that is the property of another object.
-
-
-function merge<U extends object, V extends object>(obj1: U, obj2: V) {
-    return {
-        ...obj1,
-        ...obj2
-    };
-}
-
-let person = merge(
-    { name: 'John' },
-    {age: 20}
-);
-
-console.log(person)
-
-function prop<T, K extends keyof T>(obj: T, key: K) {
-    return obj[key];
-}
-
-let str = prop({ name: 'John' }, 'name');
-console.log(str);
-=======
-console.log(ranks)
->>>>>>> 41ff35ff83e617a14da7069754afe86f46d3970c

@@ -37,16 +37,3 @@ const Pokemon = [
 ];
 const ranks = ranker(Pokemon, ({ hp }) => hp);
 console.log(ranks);
-// extends and extends keyof
-// Use extends keyword to constrain the type parameter to a specific type.
-// Use extends keyof to constrain a type that is the property of another object.
-function merge(obj1, obj2) {
-    return Object.assign(Object.assign({}, obj1), obj2);
-}
-let person = merge({ name: 'John' }, { age: 20 });
-console.log(person);
-function prop(obj, key) {
-    return obj[key];
-}
-let str = prop({ name: 'John' }, 'name');
-console.log(str);
